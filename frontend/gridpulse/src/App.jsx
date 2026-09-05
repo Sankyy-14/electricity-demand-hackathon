@@ -763,7 +763,7 @@ export default function App() {
                 <div className="model-top">
                   <div className="icon-box"><Cpu size={18} /></div>
                   <div><span>MODEL</span><strong>LIGHTGBM</strong></div>
-                  <div className="model-accuracy">96.4%<small>accuracy</small></div>
+                  <div className="model-accuracy">97.7%<small>accuracy</small></div>
                 </div>
 
                 <div className="insight-alert">
@@ -936,14 +936,14 @@ export default function App() {
             </div>
 
             <div className="analytics-grid">
-              <div className="analytics-metric panel"><span>FORECAST ACCURACY</span><strong>96.4%</strong><em>validation score</em></div>
-              <div className="analytics-metric panel"><span>MAE</span><strong>142</strong><em>MW mean absolute error</em></div>
-              <div className="analytics-metric panel"><span>RMSE</span><strong>198</strong><em>MW root mean square error</em></div>
+              <div className="analytics-metric panel"><span>R² SCORE</span><strong>97.7%</strong><em>validation score</em></div>
+              <div className="analytics-metric panel"><span>MAE</span><strong>116.6</strong><em>kW mean absolute error</em></div>
+              <div className="analytics-metric panel"><span>RMSE</span><strong>201.4</strong><em>kW root mean square error</em></div>
 
               <div className="confidence-panel panel">
-                <div className="confidence-top"><span>MODEL CONFIDENCE</span><strong>{demo ? "91.2%" : "94.8%"}</strong></div>
-                <div className="confidence-bar"><i style={{ width: demo ? "91.2%" : "94.8%" }} /></div>
-                <p>Confidence is highest around the recurring diurnal peak and lowers modestly under the simulated thermal shock.</p>
+                <div className="confidence-top"><span>IMPROVEMENT VS BASELINE</span><strong>43.4%</strong></div>
+                <div className="confidence-bar"><i style={{ width: "43.4%" }} /></div>
+                <p>The model reduces mean absolute error by 43.4% compared to a naive persistence baseline, measured on held-out test data.</p>
               </div>
 
               <div className="validation-chart panel">
