@@ -10,9 +10,9 @@ import os
 
 DATA_PATH = "data/electricity_weather_5min.csv"
 
-MODEL_1H_PATH = "model/demand_60min_model.pkl"
-MODEL_24H_PATH = "model/day_ahead_demand_model.pkl"
-MODEL_7D_PATH = "model/demand_7day_model.pkl"
+MODEL_1H_PATH = "model/compact_demand_60min_model_v2.pkl"
+MODEL_24H_PATH = "model/compact_day_ahead_demand_model.pkl"
+MODEL_7D_PATH = "model/compact_demand_7day_model.pkl"
 
 OUTPUT_PATH = "predictions/latest_forecasts.csv"
 
