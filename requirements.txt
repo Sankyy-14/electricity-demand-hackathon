@@ -8,3 +8,6 @@ streamlit
 flask
 flask-cors
 gunicorn
+flask
+flask-cors
+gunicorn
