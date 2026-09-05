@@ -1,4 +1,6 @@
-﻿"""
+from flask import Flask
+from flask_cors import CORS
+"""
 Minimal Flask API that runs the existing prediction pipeline and serves
 the forecast as JSON for the React frontend to consume.
 """
@@ -51,3 +53,4 @@ def get_forecast():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
