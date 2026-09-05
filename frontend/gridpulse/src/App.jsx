@@ -36,7 +36,7 @@ import "lenis/dist/lenis.css";
 gsap.registerPlugin(ScrollTrigger);
 
 /* =========================================================
-   GRIDPULSE — COMPLETE HACKATHON UI
+   GRIDPULSE â€” COMPLETE HACKATHON UI
    Includes all explicitly requested problem-statement features:
    - hero/live demand + grid status
    - forecast + confidence band + peak marker + capacity + NOW
@@ -45,7 +45,7 @@ gsap.registerPlugin(ScrollTrigger);
    - compact operational metrics
    - Peak Risk gauge
    - DISCOM / area load map + inspector
-   - weather → demand correlation
+   - weather â†’ demand correlation
    - model performance (accuracy / MAE / RMSE / confidence)
    - operational alerts + filters
    - heatwave demo mode
@@ -132,15 +132,15 @@ const ZONES = [
     risk: "HIGH",
     x: 50,
     y: 81,
-    action: "Pre-position additional feeder capacity 15:30–18:00.",
+    action: "Pre-position additional feeder capacity 15:30â€“18:00.",
   },
 ];
 
 const WEATHER = [
-  { label: "Temperature", value: 41.2, unit: "°C", delta: "+2.4°C", tone: "orange", strength: 100 },
+  { label: "Temperature", value: 41.2, unit: "Â°C", delta: "+2.4Â°C", tone: "orange", strength: 100 },
   { label: "Humidity", value: 58, unit: "%", delta: "+6%", tone: "blue", strength: 42 },
-  { label: "Solar generation", value: 420, unit: "MW", delta: "−36 MW", tone: "yellow", strength: 28 },
-  { label: "Wind", value: 12, unit: "km/h", delta: "−2 km/h", tone: "green", strength: 20 },
+  { label: "Solar generation", value: 420, unit: "MW", delta: "âˆ’36 MW", tone: "yellow", strength: 28 },
+  { label: "Wind", value: 12, unit: "km/h", delta: "âˆ’2 km/h", tone: "green", strength: 20 },
 ];
 
 const ALERTS = [
@@ -172,7 +172,7 @@ const ALERTS = [
     time: "13:58:42",
     area: "Delhi weather layer",
     issue: "Temperature anomaly detected",
-    detail: "Heat index is 3.1°C above the recent summer profile.",
+    detail: "Heat index is 3.1Â°C above the recent summer profile.",
     impact: "+2.8% demand sensitivity",
     action: "Raise forecast confidence watch",
     status: "OPEN",
@@ -184,7 +184,7 @@ const ALERTS = [
     area: "North Delhi / TPDDL",
     issue: "Overload risk cleared",
     detail: "Demand returned below the feeder watch threshold.",
-    impact: "−95 MW stress",
+    impact: "âˆ’95 MW stress",
     action: "Return reserve to scheduled pool",
     status: "RESOLVED",
   },
@@ -237,7 +237,7 @@ function CustomTooltip({ active, payload, label }) {
     <div className="chart-tooltip">
       <div className="tooltip-head">
         <strong>{label}</strong>
-        <span>{datum?.temp?.toFixed?.(1) ?? "—"}°C</span>
+        <span>{datum?.temp?.toFixed?.(1) ?? "â€”"}Â°C</span>
       </div>
       <div className="tooltip-line">
         <span>Predicted</span>
@@ -245,11 +245,11 @@ function CustomTooltip({ active, payload, label }) {
       </div>
       <div className="tooltip-line">
         <span>Actual</span>
-        <b>{datum.actual == null ? "—" : `${datum.actual.toLocaleString()} MW`}</b>
+        <b>{datum.actual == null ? "â€”" : `${datum.actual.toLocaleString()} MW`}</b>
       </div>
       <div className="tooltip-line">
         <span>Confidence</span>
-        <b>±{datum.confidence?.toFixed?.(1)}%</b>
+        <b>Â±{datum.confidence?.toFixed?.(1)}%</b>
       </div>
     </div>
   );
@@ -283,7 +283,7 @@ function NetworkMap({ zones, selectedId, onSelect, demo }) {
             className={`map-node ${selected.id === zone.id ? "selected" : ""} ${riskClass}`}
             style={{ left: `${zone.x}%`, top: `${zone.y}%` }}
             onClick={() => onSelect(zone.id)}
-            title={`${zone.name} — ${zone.predicted} MW projected`}
+            title={`${zone.name} â€” ${zone.predicted} MW projected`}
           >
             <span className="node-ring" />
             <span className="node-core" />
@@ -556,11 +556,11 @@ export default function App() {
 
   const insightText = demo
     ? "Extreme temperature is driving abnormal demand growth. Peak load may reach 8,850 MW around 16:40, reducing the grid buffer to 350 MW."
-    : "Temperature is expected to reach 42°C at 16:00. The model predicts demand will rise to approximately 8,460 MW during the peak window.";
+    : "Temperature is expected to reach 42Â°C at 16:00. The model predicts demand will rise to approximately 8,460 MW during the peak window.";
 
   const recommendedAction = demo
     ? "Prepare additional feeder capacity in South Delhi and stage 340 MW of regional transfer headroom."
-    : "Pre-position additional feeder capacity in South and Central Delhi between 15:30–18:00.";
+    : "Pre-position additional feeder capacity in South and Central Delhi between 15:30â€“18:00.";
 
   if (boot) {
     return (
@@ -619,7 +619,7 @@ export default function App() {
           <div className="hero-halo" />
           <div className="hero-grid" />
           <div className="hero-inner container">
-            <div className="hero-status hero-intro"><span className="live-dot" /> DELHI GRID — LIVE INTELLIGENCE</div>
+            <div className="hero-status hero-intro"><span className="live-dot" /> DELHI GRID â€” LIVE INTELLIGENCE</div>
 
             <h1 className="hero-title hero-intro">
               Predict the grid
@@ -734,7 +734,7 @@ export default function App() {
               <div className="forecast-chart-foot">
                 <span>HORIZON: {horizon.toUpperCase()}</span>
                 <span>NOW / 14:32 IST</span>
-                <span>PEAK WINDOW / 16:00–17:30</span>
+                <span>PEAK WINDOW / 16:00â€“17:30</span>
               </div>
             </div>
 
@@ -848,7 +848,7 @@ export default function App() {
                 <div><span>Buffer</span><strong>{buffer.toLocaleString()} MW</strong></div>
               </div>
 
-              <div className="peak-window"><span>PEAK WINDOW</span><strong>{demo ? "16:00–17:30" : "16:00–17:30 IST"}</strong></div>
+              <div className="peak-window"><span>PEAK WINDOW</span><strong>{demo ? "16:00â€“17:30" : "16:00â€“17:30 IST"}</strong></div>
             </Reveal>
           </div>
         </section>
@@ -878,7 +878,7 @@ export default function App() {
                 <div><span>CURRENT LOAD</span><strong>{selected.current.toLocaleString()} MW</strong></div>
                 <div><span>CAPACITY</span><strong>{selected.capacity.toLocaleString()} MW</strong></div>
                 <div><span>FEEDERS</span><strong>{selected.feeders}</strong></div>
-                <div><span>TEMPERATURE</span><strong>{selected.temp.toFixed(1)}°C</strong></div>
+                <div><span>TEMPERATURE</span><strong>{selected.temp.toFixed(1)}Â°C</strong></div>
               </div>
 
               <div className="zone-action"><span>RECOMMENDED ACTION</span><strong>{selected.action}</strong></div>
@@ -890,7 +890,7 @@ export default function App() {
         <section ref={weather} className="weather-stage">
           <div className="container weather-inner">
             <div className="weather-copy">
-              <div className="kicker">05 / WEATHER → DEMAND</div>
+              <div className="kicker">05 / WEATHER â†’ DEMAND</div>
               <h2 className="display-title">What is driving<br /><span>demand?</span></h2>
               <p className="story-copy">Weather signals are fed directly into the forecast. Temperature dominates today's projected load curve.</p>
 
@@ -906,8 +906,8 @@ export default function App() {
             <div className="weather-visual">
               <div className="temperature-focus panel">
                 <div className="temperature-label"><Thermometer size={16} /> TEMPERATURE</div>
-                <strong>{demo ? "43.0" : "41.2"}<small>°C</small></strong>
-                <span>↑ +2.4°C vs recent profile</span>
+                <strong>{demo ? "43.0" : "41.2"}<small>Â°C</small></strong>
+                <span>â†‘ +2.4Â°C vs recent profile</span>
                 <div className="temp-wave"><i /><i /><i /><i /><i /><i /><i /><i /></div>
               </div>
 
@@ -936,7 +936,7 @@ export default function App() {
             </div>
 
             <div className="analytics-grid">
-              <div className="analytics-metric panel"><span>R� SCORE</span><strong>97.7%</strong><em>validation score</em></div>
+              <div className="analytics-metric panel"><span>R² SCORE</span><strong>97.7%</strong><em>validation score</em></div>
               <div className="analytics-metric panel"><span>MAE</span><strong>116.6</strong><em>kW mean absolute error</em></div>
               <div className="analytics-metric panel"><span>RMSE</span><strong>201.4</strong><em>kW root mean square error</em></div>
 
@@ -973,7 +973,7 @@ export default function App() {
                 <div className="kicker">07 / ALERT CENTER</div>
                 <h2 className="display-title response-title">From prediction<br /><span>to action.</span></h2>
               </div>
-              <p className="story-copy">Every alert carries an area, issue, predicted impact, recommended action and status — designed for an operator, not a chat box.</p>
+              <p className="story-copy">Every alert carries an area, issue, predicted impact, recommended action and status â€” designed for an operator, not a chat box.</p>
             </div>
 
             <div className="alert-filters">
@@ -991,7 +991,7 @@ export default function App() {
                   <span className="alert-number">0{index + 1}</span>
                   <span className="alert-badge">{alert.type}</span>
                   <div className="alert-main">
-                    <span>{alert.time} IST · {alert.area}</span>
+                    <span>{alert.time} IST Â· {alert.area}</span>
                     <strong>{alert.issue}</strong>
                     <p>{alert.detail}</p>
                   </div>
@@ -1013,7 +1013,7 @@ export default function App() {
               <div className="directive-icon"><Zap size={18} /></div>
               <div>
                 <span>RECOMMENDED DISPATCH</span>
-                <strong>{demo ? "Transfer 340 MW toward available regional headroom and protect South Delhi feeders." : "Pre-position 120 MW feeder headroom before the 16:00–17:30 peak window."}</strong>
+                <strong>{demo ? "Transfer 340 MW toward available regional headroom and protect South Delhi feeders." : "Pre-position 120 MW feeder headroom before the 16:00â€“17:30 peak window."}</strong>
               </div>
               <button>EXECUTE PLAN <ArrowUpRight size={14} /></button>
             </div>
