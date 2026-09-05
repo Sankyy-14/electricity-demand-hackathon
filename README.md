@@ -2,7 +2,7 @@
 
 Delhi's peak power demand keeps hitting record highs every summer (8,000+ MW), and discoms/SLDC must predict demand accurately in advance to avoid outages and balance load across feeders. GridPulse is a short-term demand forecasting tool that combines weather data with historical load data to predict next-day/next-week electricity demand, flag when forecasts approach grid capacity, and give discoms a feeder-wise view for load balancing.
 
-Built for **PS-1** at [Hackathon Name].
+Built for **PS-1** at **ORIGIN**.
 
 ---
 
@@ -20,9 +20,9 @@ Built for **PS-1** at [Hackathon Name].
 | Data | Source | Status |
 |---|---|---|
 | Weather (temperature, humidity) | [Open-Meteo](https://open-meteo.com) — free API, no key required | **Live** |
-| Electricity load | Delhi SLDC historical data (via Kaggle) / synthetic data mirroring Delhi's seasonal load pattern | **[Real historical data / Synthetic — update based on what's actually wired into the demo]** |
+| Electricity load | [Delhi SLDC historical load data (5-min resolution), sourced via Kaggle](https://www.kaggle.com/datasets/prash4nt/delhi-sldc-load-data-5-min-resolution), resampled to hourly | **Historical (real)** |
 
-> **Disclosure:** Weather data is fetched live via the Open-Meteo API. Load data is [historical Delhi SLDC data / synthetic data generated to mirror Delhi's known seasonal and daily demand patterns, used due to hackathon time constraints — update this line to reflect what's actually in the final demo].
+> **Disclosure:** Weather data is fetched live via the Open-Meteo API. Electricity load data is real historical data from Delhi SLDC (via Kaggle), resampled from 5-minute to hourly resolution to align with the weather data.
 
 ---
 
@@ -88,5 +88,5 @@ streamlit run frontend/app.py
 ## Tech Stack
 
 - **Data pipeline:** Python, Open-Meteo API
-- **Modeling:** [scikit-learn / Prophet / XGBoost — confirm which was used]
+- **Modeling:** scikit-learn
 - **Dashboard:** Streamlit
