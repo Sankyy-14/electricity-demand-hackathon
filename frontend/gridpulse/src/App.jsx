@@ -237,7 +237,7 @@ function CustomTooltip({ active, payload, label }) {
     <div className="chart-tooltip">
       <div className="tooltip-head">
         <strong>{label}</strong>
-        <span>{datum?.temp?.toFixed?.(1) ?? ""”"}C</span>
+        <span>{datum?.temp?.toFixed?.(1) ?? "N/A"}C</span>
       </div>
       <div className="tooltip-line">
         <span>Predicted</span>
