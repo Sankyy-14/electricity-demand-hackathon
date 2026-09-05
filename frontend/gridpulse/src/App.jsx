@@ -524,8 +524,15 @@ export default function App() {
     });
   }, [demo]);
 
-  const currentDemand = demo ? 8190 : 7842;
-  const predictedPeak = demo ? 8850 : 8460;
+    const [liveForecast, setLiveForecast] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/forecast")
+      .then((res) => res.json())
+      .then((data) => setLiveForecast(data))
+      .catch((err) => console.error("Live forecast fetch failed:", err));
+  }, []);
+  const currentDemand = liveForecast ? liveForecast["1 hour"].current_demand_kw : (demo ? 8190 : 7842);
+  const predictedPeak = liveForecast ? liveForecast["24 hours"].predicted_demand_kw : (demo ? 8850 : 8460);
   const gridCapacity = 9200;
   const buffer = gridCapacity - predictedPeak;
   const utilization = (predictedPeak / gridCapacity) * 100;
@@ -633,8 +640,8 @@ export default function App() {
 
             <div className="hero-chart-shell hero-intro">
               <div className="hero-metrics">
-                <Metric label="CURRENT DEMAND" value={currentDemand.toLocaleString()} unit="MW" trend="+4.8% vs yesterday" tone="positive" />
-                <Metric label="PREDICTED PEAK" value={predictedPeak.toLocaleString()} unit="MW" trend="16:30 IST" tone="purple" />
+                <Metric label="CURRENT DEMAND" value={currentDemand.toLocaleString()} unit="kW" trend="+4.8% vs yesterday" tone="positive" />
+                <Metric label="PREDICTED PEAK" value={predictedPeak.toLocaleString()} unit="kW" trend="16:30 IST" tone="purple" />
                 <Metric label="GRID CAPACITY" value="9,200" unit="MW" trend={`${buffer.toLocaleString()} MW buffer`} tone={demo ? "critical" : "positive"} />
                 <Metric label="GRID STATUS" value={risk} trend={demo ? "heatwave scenario" : "nominal conditions"} tone={demo ? "critical" : "positive"} />
               </div>

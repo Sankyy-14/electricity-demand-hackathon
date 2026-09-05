@@ -2,7 +2,8 @@
 Minimal Flask API that runs the existing prediction pipeline and serves
 the forecast as JSON for the React frontend to consume.
 """
-
+app = Flask(__name__)
+CORS(app)
 import subprocess
 import sys
 import pandas as pd
