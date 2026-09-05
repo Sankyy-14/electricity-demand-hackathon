@@ -3,10 +3,17 @@ __pycache__/
 *.pyc
 .env
 
+<<<<<<< HEAD
 # Ignore all model files
 model/*.pkl
 
 # Upload only compact models
+=======
+# Ignore all ML model files by default
+model/*.pkl
+
+# Allow only the compact models
+>>>>>>> e223470 (Add compact ML forecasting models)
 !model/compact_demand_60min_model_v2.pkl
 !model/compact_day_ahead_demand_model.pkl
 !model/compact_demand_7day_model.pkl
