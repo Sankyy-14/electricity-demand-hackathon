@@ -1,9 +1,12 @@
-﻿venv/
+venv/
 __pycache__/
 *.pyc
 .env
+
+# Ignore all model files
 model/*.pkl
 
+# Upload only compact models
 !model/compact_demand_60min_model_v2.pkl
 !model/compact_day_ahead_demand_model.pkl
 !model/compact_demand_7day_model.pkl
