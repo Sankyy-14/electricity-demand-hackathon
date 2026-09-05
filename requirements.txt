@@ -5,3 +5,6 @@ scikit-learn
 joblib
 matplotlib
 streamlit
+flask
+flask-cors
+gunicorn
