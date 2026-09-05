@@ -31,8 +31,12 @@ Built for **PS-1** at **ORIGIN**.
 ```
 backend/          → Data pipeline: fetches weather, prepares load data,
                      merges both into a single feature-engineered dataset
-scripts/           → [Describe: supporting scripts for the ML pipeline]
-predictions/       → ML model training + forecasting logic
+scripts/           → ML pipeline: Kaggle data validation, dataset prep,
+                     model training (60-min, day-ahead, and 7-day horizon
+                     models + a residual model), baseline comparison,
+                     error analysis, time-gap checks, prediction plotting,
+                     and the final predict.py used by the dashboard
+predictions/       → Trained models / saved forecast outputs
 frontend/          → Streamlit dashboard: predicted vs. actual demand,
                      feeder breakdown, capacity alerts
 ```
